@@ -1,11 +1,11 @@
 const http = require('http');
-const {extractRoutesAndParams} = require("./utils");
+const {router} = require("./route-manager");
 
 const host = '127.0.0.1';
 const port = 3000;
 
 const server = http.createServer((req, res) => {
-    extractRoutesAndParams(req);
+    router(req, res);
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     const object = {
